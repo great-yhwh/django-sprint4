@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from blog.views import RegistrationView
+
 urlpatterns = [
     path(
         'admin/',
@@ -35,4 +37,16 @@ urlpatterns = [
             namespace='pages'
         )
     ),
+    path(
+        'auth/',
+        include(
+            'django.contrib.auth.urls',
+        )
+    ),
+    path(
+        'auth/register/',
+        RegistrationView.as_view(),
+        name='registration'
+    )
+
 ]

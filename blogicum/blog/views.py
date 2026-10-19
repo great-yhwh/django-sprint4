@@ -5,15 +5,7 @@ from .models.mdls import Category, Post
 
 
 def get_published_posts():
-    """
-    Возвращает список объектов отфильтрованных публикаций.
 
-    Критерии отбора публикаций:
-        1. Дата публикации — не позже текущего времени.
-        2. Флаг публикации самого поста равен True.
-        3. Флаг публикации категории, к которой принадлежит
-           пост, равен True.
-    """
     return (
         Post.objects
         .select_related('author', 'category', 'location')

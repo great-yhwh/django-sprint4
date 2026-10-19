@@ -46,13 +46,20 @@ class Category(BaseModel, TitleModel):
 class Post(BaseModel, TitleModel):
     """Модель публикации блога."""
 
-    text = models.TextField("Текст")
+    text = models.TextField(
+        "Текст"
+    )
     pub_date = models.DateTimeField(
         "Дата и время публикации",
         help_text=(
             "Если установить дату и время в будущем — можно делать отложенные "
             "публикации."
         ),
+    )
+    image = models.ImageField(
+        'Фото',
+        upload_to='posts_images',
+        blank=True
     )
     author = models.ForeignKey(
         User,
@@ -83,3 +90,29 @@ class Post(BaseModel, TitleModel):
 
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    """Модель комментариев к публикациям"""
+
+    text = models.TextField(
+        'Текст комментария'
+    )
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name='comments',
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.deletion.CASCADE,
+        related_name='comments',
+    )
+    created_at = models.DateTimeField(
+        auto_now_add=True
+    )
+    class Meta:
+        ordering = ['created_at']
+
+    def __str__(self):
+        return self.text
+
