@@ -13,6 +13,11 @@
       {% block title %}{% endblock %}
     </title>
     {% bootstrap_css %}
+    <style>
+      :root {
+        --bs-dark: red !important;
+      }
+    </style>
   </head>
   <body>
     {% include "includes/header.html" %}
