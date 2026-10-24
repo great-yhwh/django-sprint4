@@ -1,9 +1,9 @@
-from .base import BASE_DIR
+from .base import TEMPLATES_DIR
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [TEMPLATES_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

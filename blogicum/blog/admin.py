@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models.mdls import (
+from blog.models import (
     Location,
     Category,
     Post

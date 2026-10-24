@@ -1,6 +1,25 @@
-from .base import *  # noqa: F401, F403
-from .apps import *  # noqa: F401, F403
-from .middleware import *  # noqa: F401, F403
-from .db import *  # noqa: F401, F403
-from .templates import *  # noqa: F401, F403
-from .static import *  # noqa: F401, F403
+from .base import (
+    BASE_DIR,
+    SECRET_KEY,
+    DEBUG,
+    ALLOWED_HOSTS,
+    ROOT_URLCONF,
+    WSGI_APPLICATION,
+    LANGUAGE_CODE,
+    TIME_ZONE,
+    USE_I18N,
+    USE_TZ,
+    DEFAULT_AUTO_FIELD,
+    LOGIN_REDIRECT_URL,
+    LOGOUT_REDIRECT_URL,
+    EMAIL_BACKEND,
+    EMAIL_FILE_PATH,
+    MEDIA_ROOT,
+    MEDIA_URL,
+    AUTH_PASSWORD_VALIDATORS,
+)
+from .apps import INSTALLED_APPS
+from .middleware import MIDDLEWARE
+from .db import DATABASES
+from .templates import TEMPLATES
+from .static import STATIC_URL, STATIC_ROOT, STATICFILES_DIRS
